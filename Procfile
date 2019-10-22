@@ -1,1 +1,0 @@
-web: gunicorn dva.wsgi --log-file -

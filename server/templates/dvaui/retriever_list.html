@@ -1,0 +1,101 @@
+{% extends "dvaui/base.html" %}
+{% load staticfiles %}
+
+{% block page_content %}
+<section class="content-header" style="padding-top:0px" xmlns="http://www.w3.org/1999/html">
+<div class="row">
+    <div class="box box-info">
+        <div class="box-header">
+            <h2>Retrievers
+                <a href="/stored_process#shortcuts" class="btn btn-success" style="float: right"><i class="fa fa-plus-square"></i> Create new retriever</a>
+            </h2>
+        </div>
+    </div>
+</div>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box box-primary">
+            <div class="box-header with-border">
+                <h4>Retriever workers</h4>
+            </div>
+            <div class="box-body">
+                <table class="table dataTables-dict">
+                <thead>
+                <tr>
+                    <th class="text-center">Retriever ID</th>
+                    <th class="text-center">Queue</th>
+                    <th class="text-center">Worker</th>
+                    <th class="text-center">Index entries</th>
+                    <th class="text-center">Vectors</th>
+                    <th class="text-center">Refresh duration</th>
+                    <th class="text-center">Last updated</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for r in retriever_state %}
+                    <tr>
+                        <td class="text-right">{{ r.retriever_id }} </td>
+                        <td>{{ r.queue_name }} </td>
+                        <td class="text-right">{{ r.worker_id }} </td>
+                        <td class="text-right">{{ r.index_entries_count }} </td>
+                        <td class="text-right">{{ r.vectors_count }} </td>
+                        <td class="text-right">{{ r.delta }}</td>
+                        <td class="text-right">{{ r.ts|timesince }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                </table>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box box-primary">
+            <div class="box-header with-border">
+                <h4>Configured Retrievers</h4>
+            </div>
+            <div class="box-body">
+                <table class="table dataTables-dict">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Algorithm</th>
+                    <th>Source filter</th>
+                    <th>Arguments</th>
+                    <th>Indexer shasum</th>
+                    <th>Approximator shasum</th>
+                    <th>Created</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for r in object_list %}
+                    <tr>
+                        <td>{{ r.pk }} </td>
+                        <td>{{ r.name }} </td>
+                        <td>{{ r.get_algorithm_display }}</td>
+                        <td>{{ r.source_filters}}</td>
+                        <td>{{ r.arguments }}</td>
+                        <td>{{ r.indexer_shasum }}</td>
+                        <td>{{ r.approximator_shasum }}</td>
+                        <td>{{ r.created }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                </table>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+{% block page_js%}
+<script>
+    $(document).ready(function() {
+            InitializeTables();
+    })
+</script>
+{% endblock %}
