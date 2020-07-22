@@ -1,13 +1,14 @@
 # Deep Video Analytics &nbsp; &nbsp; [![Build Status](https://travis-ci.org/AKSHAYUBHAT/DeepVideoAnalytics.svg?branch=master)](https://travis-ci.org/AKSHAYUBHAT/DeepVideoAnalytics) [![Build Status](https://travis-ci.org/AKSHAYUBHAT/DeepVideoAnalytics.svg?branch=stable)](https://travis-ci.org/AKSHAYUBHAT/DeepVideoAnalytics/branches)
 #### by [Akshay Bhat](https://www.akshaybhat.com)
 
+#### Jan 2020 Update: I have decided to cease public development of this repo, more infromation is present in Archived.md. 
+
 ![UI Screenshot](docs/figures/emma.png "Emma Watson, from poster of her latest subject appropriate movie The Circle")
 
 Deep Video Analytics is a platform for indexing and extracting information from videos and images.
 With latest version of docker installed correctly, you can run Deep Video Analytics in minutes
 locally (even without a GPU) using a single command.
 
-#### May 2019 Update: Over the last few months I have been developing DVA on a private repo and will be updating the public version in Fall 2019. 
 
 ### Installation & Overview
 
